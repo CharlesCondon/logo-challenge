@@ -32,10 +32,22 @@ h1 {
     width: 35pt;
     filter: invert(90%);
 }
+.reset:hover {
+    filter: invert(70%);
+}
+.reset:active {
+    filter: invert(50%);
+}
 
 .help {
     width: 40pt;
     filter: invert(90%);
+}
+.help:hover {
+    filter: invert(70%);
+}
+.help:active {
+    filter: invert(50%);
 }
 
 .dots {
