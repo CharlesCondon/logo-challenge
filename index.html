@@ -8,13 +8,17 @@
     <title>Logo Challenge</title>
     <script src="./main.js"></script>
     <link 
-      rel="shortcut icon"
-      type="image/x-icon"
-      href="./assets/IA_logo-finished state.jpg"
+        rel="shortcut icon"
+        type="image/x-icon"
+        href="./assets/IA_logo-finished state.jpg"
     />
     <link
-      rel="stylesheet"
-      href="./style.css"
+        rel="stylesheet"
+        href="./style.css"
+    />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
 </head>
 <body>
@@ -28,15 +32,15 @@
     <div id="start">
         <div class='gameBoard'>
             <div class="dots">
-                <img data='first' id="i1" src='./assets/ia-logo-dot-blue.png' alt="blue dot" draggable="true" ondragstart="drag(event)" />
-                <img data='second' id="i2" src='./assets/ia-logo-dot-red.png' alt="red dot" draggable="true" ondragstart="drag(event)" />
-                <img data='third' id="i3" src='./assets/ia-logo-dot-green.png' alt="green dot" draggable="true" ondragstart="drag(event)" />
-                <img data='fourth' id="i4" src='./assets/ia-logo-dot-black.png' alt="black dot" draggable="true" ondragstart="drag(event)" />
-                <img data='fifth' id="i5" src='./assets/ia-logo-dot-black.png' alt="black dot" draggable="true" ondragstart="drag(event)" />
+                <img class="animate__animated" data='first' id="i1" src='./assets/ia-logo-dot-blue.png' alt="blue dot" draggable="true" ondragstart="drag(event)" />
+                <img class="animate__animated" data='second' id="i2" src='./assets/ia-logo-dot-red.png' alt="red dot" draggable="true" ondragstart="drag(event)" />
+                <img class="animate__animated" data='third' id="i3" src='./assets/ia-logo-dot-green.png' alt="green dot" draggable="true" ondragstart="drag(event)" />
+                <img class="animate__animated" data='fourth' id="i4" src='./assets/ia-logo-dot-black.png' alt="black dot" draggable="true" ondragstart="drag(event)" />
+                <img class="animate__animated" data='fifth' id="i5" src='./assets/ia-logo-dot-black.png' alt="black dot" draggable="true" ondragstart="drag(event)" />
             </div>
         </div>
         <div class='puzzle'>
-            <img class='start' src='./assets/ia-logo-back.png' alt="empty logo"/>
+            <img class='start ' src='./assets/ia-logo-back.png' alt="empty logo"/>
             <span  class='answer' id='first'  ondrop="drop(event)" ondragover="allowDrop(event)"></span>
             <span class='answer' id='second'  ondrop="drop(event)" ondragover="allowDrop(event)"></span>
             <span  class='answer' id='third'  ondrop="drop(event)" ondragover="allowDrop(event)"></span>
@@ -58,13 +62,15 @@
         e.preventDefault();
         const data = e.dataTransfer.getData("text");
         const current = document.getElementById(data);
-        //console.log(current.getAttribute("data"))
         if(current.getAttribute("data") === e.target.id) {
             e.target.appendChild(document.getElementById(data));
+            current.classList.add('animate__flash')
         }
-        else if(current.getAttribute("data") === 'fourth' || current.getAttribute("data") === 'fifth' &&
-                e.target.id === 'fourth' || e.target.id === 'fifth') {
-            e.target.appendChild(document.getElementById(data));     
+        else if(current.getAttribute("data") === 'fourth' || current.getAttribute("data") === 'fifth') {
+            if(e.target.id === 'fourth' || e.target.id === 'fifth') {
+                e.target.appendChild(document.getElementById(data));
+                current.classList.add('animate__flash')   
+            }  
         }
     }
 </script>
