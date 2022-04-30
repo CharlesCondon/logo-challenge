@@ -57,7 +57,15 @@
     function drop(e) {
         e.preventDefault();
         const data = e.dataTransfer.getData("text");
-        e.target.appendChild(document.getElementById(data));
+        const current = document.getElementById(data);
+        //console.log(current.getAttribute("data"))
+        if(current.getAttribute("data") === e.target.id) {
+            e.target.appendChild(document.getElementById(data));
+        }
+        else if(current.getAttribute("data") === 'fourth' || current.getAttribute("data") === 'fifth' &&
+                e.target.id === 'fourth' || e.target.id === 'fifth') {
+            e.target.appendChild(document.getElementById(data));     
+        }
     }
 </script>
 </html>
