@@ -31,3 +31,34 @@ h1 {
     width: 40pt;
     filter: invert(90%);
 }
+
+.dots {
+    width: 550px;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10pt 0;
+}
+
+.dots > img:hover {
+    filter: invert(30%);
+    border: 2px solid rgb(250, 249, 249);
+}
+
+.start {
+    width: 550px;
+    border: 2px solid rgba(220, 220, 220, .5);
+}
+
+.dots > img {
+    border: 2px solid rgba(220, 220, 220, .5);
+    border-radius: 100px;
+}
+
+.puzzle {
+    position: relative;
+    width: 550px;
+    margin: auto;
+}
