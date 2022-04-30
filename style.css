@@ -1,0 +1,33 @@
+.gameBoard {
+    margin: 20pt 0;
+}
+.headerContainer {
+    width: 100%;
+    border-bottom: 2px solid rgba(220, 220, 220);
+}
+
+.headContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    width: 95%;
+}
+
+h1 {
+    font-size: 30pt;
+    margin: 0;
+    padding: 10pt;
+    color: gainsboro;
+}
+
+.reset {
+    width: 35pt;
+    filter: invert(90%);
+}
+
+.help {
+    width: 40pt;
+    filter: invert(90%);
+}
