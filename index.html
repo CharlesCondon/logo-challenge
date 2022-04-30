@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Logo Challenge</title>
-    <script src="./main.js"></script>
     <link 
         rel="shortcut icon"
         type="image/x-icon"
@@ -57,21 +56,44 @@
     function drag(e) {
         e.dataTransfer.setData("text", e.target.id);
     }
-    
+    let total = [];
     function drop(e) {
         e.preventDefault();
         const data = e.dataTransfer.getData("text");
         const current = document.getElementById(data);
         if(current.getAttribute("data") === e.target.id) {
             e.target.appendChild(document.getElementById(data));
-            current.classList.add('animate__flash')
+            current.classList.add('animate__flash');
+            total.push(current.getAttribute("data"));
+            console.log(total)
         }
         else if(current.getAttribute("data") === 'fourth' || current.getAttribute("data") === 'fifth') {
             if(e.target.id === 'fourth' || e.target.id === 'fifth') {
                 e.target.appendChild(document.getElementById(data));
-                current.classList.add('animate__flash')   
+                current.classList.add('animate__flash'); 
+                console.log(current)
+                current.draggable = 'false';
+                console.log((current.getAttribute("data")))
+                if(!total.includes(current.getAttribute("data"))) {
+                    total.push(current.getAttribute("data"));
+                    console.log(total)
+                }  
             }  
         }
+        if (total.length === 5) {
+            alert('congrats')
+        }
     }
+    const initial = document.getElementById('start').innerHTML;
+    const reset = document.querySelector('.reset');
+    let html;
+    window.onload = function() {
+        html = document.querySelector('#start').innerHTML;
+    }
+    reset.onclick = () => {
+        document.getElementById('start').innerHTML = html;
+        total = [];
+    }
+    
 </script>
 </html>

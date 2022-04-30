@@ -33,10 +33,10 @@ h1 {
     filter: invert(90%);
 }
 .reset:hover {
-    filter: invert(70%);
+    filter: invert(60%);
 }
 .reset:active {
-    filter: invert(50%);
+    filter: invert(30%);
 }
 
 .help {
@@ -44,10 +44,10 @@ h1 {
     filter: invert(90%);
 }
 .help:hover {
-    filter: invert(70%);
+    filter: invert(60%);
 }
 .help:active {
-    filter: invert(50%);
+    filter: invert(30%);
 }
 
 .dots {
@@ -63,6 +63,7 @@ h1 {
 .dots > img:hover {
     filter: invert(30%);
     border: 2px solid rgb(250, 249, 249);
+    cursor: pointer;
 }
 
 .start {
@@ -112,4 +113,70 @@ h1 {
     position: absolute;
     right: 56pt;
     bottom: 148pt;
+}
+
+@media only screen and (max-width: 550px) {
+    h1 {
+        font-size: 20pt;
+        margin: 0;
+        padding: 10pt;
+    }
+    .reset {
+        width: 30pt;
+    }
+    
+    .help {
+        width: 35pt;
+    }
+    .start {
+        width: 300px;
+    }
+    .dots {
+        width: 300px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10pt 0;
+    }
+    .dots > img {
+        width: 50px;
+    }
+    .puzzle {
+        position: relative;
+        width: 300px;
+        margin: auto;
+    }
+    .answer {
+        position: absolute;
+        width: 45pt;
+        height: 45pt;
+        border-radius: 100pt;
+    }
+    #first {
+        position: absolute;
+        right: 80pt;
+        top: 12pt;
+    }
+    #second {
+        position: absolute;
+        right: 12pt;
+        top: 21pt;
+    }
+    #third {
+        position: absolute;
+        left: 47pt;
+        bottom: 63pt;
+    }
+    #fourth {
+        position: absolute;
+        left: 11pt;
+        top: 66pt;
+    }
+    #fifth {
+        position: absolute;
+        right: 26pt;
+        bottom: 82pt;
+    }
 }
