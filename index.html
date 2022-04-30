@@ -28,21 +28,36 @@
     <div id="start">
         <div class='gameBoard'>
             <div class="dots">
-                <img data='first' src='./assets/ia-logo-dot-blue.png' alt="blue dot" draggable />
-                <img data='second' src='./assets/ia-logo-dot-red.png' alt="red dot" draggable />
-                <img data='third' src='./assets/ia-logo-dot-green.png' alt="green dot" draggable />
-                <img data='fourth' src='./assets/ia-logo-dot-black.png' alt="black dot" draggable />
-                <img data='fifth' src='./assets/ia-logo-dot-black.png' alt="black dot" draggable />
+                <img data='first' src='./assets/ia-logo-dot-blue.png' alt="blue dot" draggable="true" ondragstart="drag(event)" />
+                <img data='second' src='./assets/ia-logo-dot-red.png' alt="red dot" draggable="true" ondragstart="drag(event)" />
+                <img data='third' src='./assets/ia-logo-dot-green.png' alt="green dot" draggable="true" ondragstart="drag(event)" />
+                <img data='fourth' src='./assets/ia-logo-dot-black.png' alt="black dot" draggable="true" ondragstart="drag(event)" />
+                <img data='fifth' src='./assets/ia-logo-dot-black.png' alt="black dot" draggable="true" ondragstart="drag(event)" />
             </div>
         </div>
         <div class='puzzle'>
             <img class='start' src='./assets/ia-logo-back.png' alt="empty logo"/>
-            <span  class='answer' id='first' ></span>
-            <span class='answer' id='second' ></span>
-            <span  class='answer' id='third' ></span>
-            <span  class='answer' id='fourth' ></span>
-            <span  class='answer' id='fifth' ></span>
+            <span  class='answer' id='first'  ondrop="drop(event)" ondragover="allowDrop(event)"></span>
+            <span class='answer' id='second'  ondrop="drop(event)" ondragover="allowDrop(event)"></span>
+            <span  class='answer' id='third'  ondrop="drop(event)" ondragover="allowDrop(event)"></span>
+            <span  class='answer' id='fourth'  ondrop="drop(event)" ondragover="allowDrop(event)"></span>
+            <span  class='answer' id='fifth'  ondrop="drop(event)" ondragover="allowDrop(event)"></span>
         </div>
     </div>
 </body>
+<script>
+    function allowDrop(e) {
+        e.preventDefault();
+    }
+    
+    function drag(e) {
+        e.dataTransfer.setData("text", e.target.id);
+    }
+    
+    function drop(e) {
+        e.preventDefault();
+        const data = e.dataTransfer.getData("text");
+        e.target.appendChild(document.getElementById(data));
+    }
+</script>
 </html>

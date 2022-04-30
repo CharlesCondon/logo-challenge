@@ -68,3 +68,36 @@ h1 {
     width: 550px;
     margin: auto;
 }
+.answer {
+    position: absolute;
+    /* border: 2px solid rgba(0, 0, 0, .25); */
+    width: 75pt;
+    height: 75pt;
+    border-radius: 100pt;
+}
+
+#first {
+    position: absolute;
+    right: 155pt;
+    top: 30pt;
+}
+#second {
+    position: absolute;
+    right: 32pt;
+    top: 48pt;
+}
+#third {
+    position: absolute;
+    left: 92pt;
+    bottom: 114pt;
+}
+#fourth {
+    position: absolute;
+    left: 25pt;
+    top: 130pt;
+}
+#fifth {
+    position: absolute;
+    right: 56pt;
+    bottom: 148pt;
+}
