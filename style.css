@@ -124,6 +124,29 @@ h1 {
     margin: 10pt 0;
 }
 
+.helpModal {
+    background-color: rgb(175, 174, 174);
+    border: 2px solid gainsboro;
+    border-radius: 10pt;
+    width: 300px;
+    margin: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+.helpModal > h3 {
+    font-size: 20pt;
+}
+.helpModal > p {
+    font-size: 15pt;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
 @media only screen and (max-width: 550px) {
     h1 {
         font-size: 20pt;

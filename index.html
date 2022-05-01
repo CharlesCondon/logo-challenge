@@ -47,6 +47,10 @@
             <span  class='answer' id='fifth'  ondrop="drop(event)" ondragover="allowDrop(event)"></span>
         </div>
     </div>
+    <div class="helpModal">
+        <h3>How To Play</h3>
+        <p>Drag each dot to the approximate spot on the logo to create the InspiringApps logo</p>
+    </div>
 </body>
 <script>
 
@@ -110,6 +114,12 @@
         congrats.textContent = "CONGRATS!";
         congrats.classList.add('congrats', 'animate__animated', 'animate__fadeIn', 'animate__slower');
         dotBox.appendChild(congrats);
+    }
+
+    let help = document.querySelector('.help');
+    // function to display help modal on click
+    help.onclick = () => {
+
     }
     
 </script>
