@@ -38,8 +38,8 @@
                 <img class="animate__animated" data='fifth' id="i5" src='./assets/ia-logo-dot-black.png' alt="black dot" draggable="true" ondragstart="drag(event)" />
             </div>
         </div>
-        <div class='puzzle'>
-            <img class='start ' src='./assets/ia-logo-back.png' alt="empty logo"/>
+        <div class='puzzle animate__animated'>
+            <img class='start animate__animated' src='./assets/ia-logo-back.png' alt="empty logo"/>
             <span  class='answer' id='first'  ondrop="drop(event)" ondragover="allowDrop(event)"></span>
             <span class='answer' id='second'  ondrop="drop(event)" ondragover="allowDrop(event)"></span>
             <span  class='answer' id='third'  ondrop="drop(event)" ondragover="allowDrop(event)"></span>
@@ -49,50 +49,67 @@
     </div>
 </body>
 <script>
+
     function allowDrop(e) {
         e.preventDefault();
     }
-    
+    // save chosen node id in order to drop
     function drag(e) {
         e.dataTransfer.setData("text", e.target.id);
     }
+
+    // check if chosen placement is correct position and advance win state
     let total = [];
     function drop(e) {
+
         e.preventDefault();
         const data = e.dataTransfer.getData("text");
         const current = document.getElementById(data);
+
         if(current.getAttribute("data") === e.target.id) {
             e.target.appendChild(document.getElementById(data));
             current.classList.add('animate__flash');
+            document.getElementById(data).setAttribute('draggable', 'false')
             total.push(current.getAttribute("data"));
-            console.log(total)
         }
+        // allow black dots to be placed in both relevant positions
         else if(current.getAttribute("data") === 'fourth' || current.getAttribute("data") === 'fifth') {
             if(e.target.id === 'fourth' || e.target.id === 'fifth') {
                 e.target.appendChild(document.getElementById(data));
                 current.classList.add('animate__flash'); 
-                console.log(current)
-                current.draggable = 'false';
-                console.log((current.getAttribute("data")))
-                if(!total.includes(current.getAttribute("data"))) {
-                    total.push(current.getAttribute("data"));
-                    console.log(total)
-                }  
+                document.getElementById(data).setAttribute('draggable', 'false')
+                total.push(current.getAttribute("data"));
+                  
             }  
         }
+        // win state reached
         if (total.length === 5) {
-            alert('congrats')
+            win();
         }
     }
+
     const initial = document.getElementById('start').innerHTML;
     const reset = document.querySelector('.reset');
     let html;
+    // get initial state of DOM elements
     window.onload = function() {
         html = document.querySelector('#start').innerHTML;
     }
+    // reset game board to the initial state
     reset.onclick = () => {
         document.getElementById('start').innerHTML = html;
         total = [];
+    }
+    // function to congratulate user on win
+    function win() {
+        let game = document.querySelector('.puzzle');
+        let dotBox = document.querySelector('.dots');
+        game.classList.add('animate__tada');
+
+        let congrats = document.createElement('h2');
+        congrats.textContent = "CONGRATS!";
+        congrats.classList.add('congrats', 'animate__animated', 'animate__fadeIn', 'animate__slower');
+        dotBox.appendChild(congrats);
     }
     
 </script>

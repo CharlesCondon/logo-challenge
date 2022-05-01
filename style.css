@@ -115,6 +115,15 @@ h1 {
     bottom: 148pt;
 }
 
+.congrats {
+    font-size: 25pt;
+    padding: 10pt 15pt;
+    background-color: gainsboro;
+    color: black;
+    border-radius: 8pt;
+    margin: 10pt 0;
+}
+
 @media only screen and (max-width: 550px) {
     h1 {
         font-size: 20pt;
