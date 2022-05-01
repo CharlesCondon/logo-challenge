@@ -126,21 +126,34 @@ h1 {
 
 .helpModal {
     background-color: rgb(175, 174, 174);
-    border: 2px solid gainsboro;
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 10pt;
     width: 300px;
     margin: auto;
     position: fixed;
-    top: 50%;
+    top: 30%;
     left: 50%;
     /* bring your own prefixes */
     transform: translate(-50%, -50%);
 }
 .helpModal > h3 {
     font-size: 20pt;
+    border-bottom: 1px solid gainsboro;
+    padding: 10pt;
+    margin: 0 0 10pt;
 }
 .helpModal > p {
     font-size: 15pt;
+    padding: 10pt;
+    margin: auto;
+    text-align: left;
+}
+
+.x {
+    width: 15px;
+    position: absolute;
+    top: 7pt;
+    right: 7pt;
 }
 
 .hidden {

@@ -47,9 +47,12 @@
             <span  class='answer' id='fifth'  ondrop="drop(event)" ondragover="allowDrop(event)"></span>
         </div>
     </div>
-    <div class="helpModal">
+    <div class="helpModal animate__animated hidden">
         <h3>How To Play</h3>
-        <p>Drag each dot to the approximate spot on the logo to create the InspiringApps logo</p>
+        <p>Drag dots to the empty spaces</p>
+        <p>Placement should match the InspiringApps logo</p>
+        <p>Correct placement will lock the dot in place</p>
+        <img class="x" src="./assets/close.png" alt="close" />
     </div>
 </body>
 <script>
@@ -119,7 +122,17 @@
     let help = document.querySelector('.help');
     // function to display help modal on click
     help.onclick = () => {
+        let modal = document.querySelector('.helpModal');
+        let x = document.querySelector('.x');
 
+        modal.classList.toggle('hidden');
+        modal.classList.toggle('animate__fadeIn');
+
+        x.onclick = () => {
+            modal.classList.toggle('hidden');
+            modal.classList.toggle('animate__fadeIn');
+            //modal.classList.toggle('animate__fadeOut');
+        }
     }
     
 </script>
